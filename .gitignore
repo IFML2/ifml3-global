@@ -12,3 +12,4 @@ target/
 
 # NetBeans
 nb-configuration.xml
+/.asciidoctorconfig.adoc

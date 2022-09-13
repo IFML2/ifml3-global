@@ -1,0 +1,6 @@
+= IFML3 Global
+
+This project is parent POM for all other projects in group *IFML3*
+
+It's contains main properties, dependency management, plugin management
+and profiles.
