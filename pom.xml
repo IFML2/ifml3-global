@@ -13,4 +13,60 @@
     <name>IFML3 :: Global</name>
     <description>Project for management all settings for IFML3 group projects</description>
 
+    <properties>
+        <!-- Global Settings -->
+        <top.dir>.</top.dir>
+        <!-- Encoding -->
+        <encoding>UTF-8</encoding>
+        <!-- Java version -->
+        <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <!-- Version of plugin dependencies -->
+        <!-- Version of lib dependencies -->
+    </properties>
+
+    <profiles>
+        <!-- Gitflow support -->
+        <!--
+            All projects with .git folder  will use this profile.
+        -->
+        <profile>
+            <id>gitflow-support</id>
+            <activation>
+                <file>
+                    <exists>.git</exists>
+                </file>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.amashchenko.maven.plugin</groupId>
+                        <artifactId>gitflow-maven-plugin</artifactId>
+                        <version>1.18.0</version>
+                        <configuration>
+                            <gitFlowConfig>
+                                <productionBranch>master</productionBranch>
+                                <developmentBranch>develop</developmentBranch>
+                                <featureBranchPrefix>feature/</featureBranchPrefix>
+                                <releaseBranchPrefix>release/</releaseBranchPrefix>
+                                <hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
+                                <supportBranchPrefix>support/</supportBranchPrefix>
+                                <versionTagPrefix>v</versionTagPrefix>
+                                <origin>origin</origin>
+                            </gitFlowConfig>
+                            <fetchRemote>true</fetchRemote>
+                            <pushRemote>true</pushRemote>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <scm>
+        <url>https://github.com/IFML2/ifml3-global</url>
+        <connection>scm:git:https://github.com/IFML2/ifml3-global.git</connection>
+        <developerConnection>scm:git:git@github.com:IFML2/ifml3-global.git</developerConnection>
+    </scm>
 </project>
